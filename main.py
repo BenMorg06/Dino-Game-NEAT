@@ -183,7 +183,8 @@ def eval_genomes(genomes, config):
                 if dinosaur.rect.colliderect(obstacle.rect):
                     ge[i].fitness -=1
                     remove(i)
-        
+                    
+        # sends AI the coords of dino and obstacle
         for i, dino in  enumerate(dinos):
             output = nets[i].activate((dino.rect.y, distance((dino.rect.x, dino.rect.y), obstacle.rect.midtop)))
             if output[0] > 0.5 and dino.rect.y == dino.Y_POS:
